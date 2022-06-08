@@ -91,8 +91,8 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3661491062877256561}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -108,6 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b58d794fc216643b9970811db92fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  solarSystem: {fileID: 0}
   revolution: {fileID: 0}
   OrbitalPeriod: 0
   RotationPeriod: 27.3
+  isCatch: 0
+  isSet: 1

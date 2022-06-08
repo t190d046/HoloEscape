@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene1.unity
     guid: 342b2c3331f161d42b491d96d5a76090
-  - enabled: 0
-    path: Assets/WorldLocking.Examples/Scenes/SpacePin.unity
-    guid: 516c32e1748c92a4280675c0a2c3f24f
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e9a2124986a2fb548bd8bce271de489c, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 97dc3aed269a2004bac0fdc82e164902, type: 2}

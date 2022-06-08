@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour
 {
-    [SerializeField] Transform revolution;
     public float OrbitalPeriod;
     public float RotationPeriod;
 
-    Transform m_transform;
-    Quaternion m_CurrentRotation;
+    private Transform m_transform, p_transform;
+    private Quaternion m_CurrentRotation;
+
     float speed = 0.5f;
     float rotY;
     float revY;
@@ -18,7 +18,12 @@ public class PlanetController : MonoBehaviour
     void Awake()
     {
         m_transform = transform;
+        p_transform = transform.parent;
         m_CurrentRotation = m_transform.localRotation;
+    }
+    public void setParent()
+    {
+        p_transform = transform.parent;
     }
 
     private void Start()
@@ -26,6 +31,7 @@ public class PlanetController : MonoBehaviour
         rotY = Time.deltaTime * speed * 36 / RotationPeriod;
         revY = Time.deltaTime * speed * 36 * OrbitalPeriod;
     }
+
     public void PlanetRotate()
     {
         m_transform.Rotate(0, rotY, 0);
@@ -35,8 +41,8 @@ public class PlanetController : MonoBehaviour
     public void PlanetRevolution()
     {
         Quaternion addRev = Quaternion.Euler(0, revY, 0);
-        Quaternion currentRev = revolution.localRotation;
-        revolution.localRotation = currentRev * addRev;
+        Quaternion currentRev = p_transform.localRotation;
+        p_transform.localRotation = currentRev * addRev;
         m_transform.localRotation = Quaternion.Inverse(addRev) * m_CurrentRotation;
         m_CurrentRotation = m_transform.localRotation;
     }
