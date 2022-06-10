@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class SlidePuzzlePanel : MonoBehaviour
 {
-    [SerializeField] SlidePuzzle slidePuzzle;
+    [SerializeField] SlidePuzzleManager slidePuzzle;
     [SerializeField] int row, column;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip sound;
 
     private int defaultRow, defauleColumn;
     private void Awake()
     {
         defaultRow = row;
         defauleColumn = column;
+    }
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void init()
@@ -22,7 +29,7 @@ public class SlidePuzzlePanel : MonoBehaviour
 
     public void SetPosition(int r, int c)
     {
-        transform.localPosition = new Vector3((c - 1) * 0.3f, (r - 1) * 0.3f, 0);
+        transform.localPosition = new Vector3((c - 1) * 0.3f, (r - 1) * -0.3f, 0);
     }
     public void SetRowColumn(int r, int c)
     {
@@ -63,12 +70,13 @@ public class SlidePuzzlePanel : MonoBehaviour
 
     IEnumerator PanelSlideCoroutine(float r, float c)
     {
-        for (int i = 0; i < 5; i++)
+        audioSource.PlayOneShot(sound);
+        for (int i = 0; i < 4; i++)
         {
             yield return new WaitForSeconds(0.1f);
             transform.Translate(r, c, 0);
         }
         Debug.Log(transform.localPosition);
-        slidePuzzle.canSlide = true;
+        slidePuzzle.PuzzleCompleteCheck();
     }
 }

@@ -10,26 +10,32 @@ public enum SlideDirection
     right,
     bottom
 }
-public class SlidePuzzle : MonoBehaviour
+public class SlidePuzzleManager : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] SlidePuzzlePanel[] slidePuzzlePanels;
-        //panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9;
+    //panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9;
+    [SerializeField] GameObject inItem;
     public bool canSlide = true;
     public int[,] panelArray = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 
-    private void Start()
+    bool complete = false;
+    private void OnEnable()
     {
         init();
     }
     public void init()
     {
+        complete = false;
         canSlide = true;
+        panelArray = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         shufflePanel();
         for (int r = 0; r < 3; r++)
         {
             for (int c = 0; c < 3; c++)
             {
                 slidePuzzlePanels[panelArray[r, c] - 1].SetPosition(r, c);
+                slidePuzzlePanels[panelArray[r, c] - 1].SetRowColumn(r, c);
             }
         }
     }
@@ -38,7 +44,7 @@ public class SlidePuzzle : MonoBehaviour
     {
         int row = 2, col = 2;
         SlideDirection[] canSlideDirections = new SlideDirection[4];
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             int len = 0;
             if (row - 1 >= 0)
@@ -62,7 +68,8 @@ public class SlidePuzzle : MonoBehaviour
                 len++;
             }
 
-            int rnd = Random.Range(1, len);
+            int rnd = Random.Range(0, len);
+            //Debug.Log("len" + len + "rnd" + rnd);
 
             switch (canSlideDirections[rnd])
             {
@@ -87,6 +94,28 @@ public class SlidePuzzle : MonoBehaviour
         }
     }
     
+    public void PuzzleCompleteCheck()
+    {
+        int num = 1;
+        for (int r = 0; r < 3; r++)
+        {
+            for (int c = 0; c < 3; c++)
+            {
+                Debug.Log("Check" + panelArray[r, c] + num);
+                if (panelArray[r, c] != num)
+                {
+                    canSlide = true;
+                    return;
+                }
+                num++;
+            }
+        }
+        inItem.SetActive(true);
+        StartCoroutine(OpenCoroutine());
+        complete = true;
+        canSlide = false;
+        gameManager.SetClearSlidePuzzle();
+    }
 
     public void SwapPanel(int r, int c, int nr, int nc)
     {
@@ -140,5 +169,16 @@ public class SlidePuzzle : MonoBehaviour
             }
         }
         return SlideDirection.NotSlide;
+    }
+
+
+    IEnumerator OpenCoroutine()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            transform.Translate(0, 0.04f, 0);
+        }
+        Debug.Log(transform.localPosition);
     }
 }

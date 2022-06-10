@@ -6,6 +6,7 @@ using Microsoft.MixedReality.Toolkit.Input;
 
 public class GemPlate : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] GameObject keyHole;
     private bool[] SetGemArray = new bool[] { false, false, false, false, false, false };
     private int num = 0;
@@ -24,5 +25,6 @@ public class GemPlate : MonoBehaviour
 
         }
         keyHole.SetActive(true);
+        gameManager.SetClearDoorLock();
     }
 }
