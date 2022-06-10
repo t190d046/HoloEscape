@@ -142,8 +142,16 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+<<<<<<< HEAD
   - {fileID: -5486649608226365241, guid: 97dc3aed269a2004bac0fdc82e164902, type: 2}
   - {fileID: -6661153359212761588, guid: e9a2124986a2fb548bd8bce271de489c, type: 2}
+=======
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -6831037918160617316, guid: bb845e539b068b649962a86af1ac1231, type: 2}
+  - {fileID: -6785285390867793517, guid: 1bac35386c940f7428ec3d12012a036d, type: 2}
+>>>>>>> origin/UI_Maneger
   - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -617,7 +625,8 @@ PlayerSettings:
   gcIncremental: 1
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    WSA: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: HoloEscape
