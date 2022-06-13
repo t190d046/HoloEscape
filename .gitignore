@@ -42,4 +42,4 @@ Assets/StreamingAssets/crashlytics-build.properties
 Assets/XR/BIZUDPGothic-RegularSDF.asset
 
 # logs
-*.log
+Logs/*
