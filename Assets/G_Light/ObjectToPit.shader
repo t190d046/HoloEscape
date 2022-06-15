@@ -1,6 +1,6 @@
 Shader "Custom/ObjectToPit" {
     Properties{
-        _MainTex("Base (RGB)", 2D) = "Black" {}
+        _MainTex("Base (RGB)", 2D) = "white" {}
     }
         SubShader{
             Tags { "RenderType" = "Opaque" }

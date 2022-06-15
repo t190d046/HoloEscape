@@ -15,7 +15,7 @@ Shader "Custom/Silhouette" {
         };
 
         void surf(Input IN, inout SurfaceOutput o) {
-            o.Albedo = fixed3(1, 1, 1);
+            o.Albedo = fixed3(1, 0, 0);
             o.Alpha = 0;
         }
         ENDCG
