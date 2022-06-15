@@ -16,6 +16,7 @@ public class Strawberry : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
+        if (transform.parent != room) return;
         Debug.Log("Enter_" + collision.name);
 
         if (collision.gameObject.name == "TableFork")

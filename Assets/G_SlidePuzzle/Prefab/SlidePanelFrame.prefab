@@ -435,7 +435,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ded5b07a3eab5a468a418704e8d2285, type: 2}
+  - {fileID: 2100000, guid: ab3a235247238724fb92ad4d34c15087, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -491,13 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c08b7987391504f924e309d529c90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel1: {fileID: 0}
-  panel2: {fileID: 0}
-  panel3: {fileID: 0}
-  panel4: {fileID: 0}
-  panel5: {fileID: 0}
-  panel6: {fileID: 0}
-  panel7: {fileID: 0}
-  panel8: {fileID: 0}
-  panel9: {fileID: 0}
+  gameManager: {fileID: 0}
+  slidePuzzlePanels: []
+  inItem: {fileID: 0}
   canSlide: 1
