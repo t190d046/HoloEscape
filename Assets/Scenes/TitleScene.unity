@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9acc7968244a8886f3af591305bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeProfile: {fileID: 11400000, guid: 31a611a779d3499e8e35f1a2018ca841, type: 2}
+  activeProfile: {fileID: 11400000, guid: e5abb7b535e0ef942b70fb2c71a30422, type: 2}
 --- !u!4 &601047321
 Transform:
   m_ObjectHideFlags: 0
@@ -261,6 +261,14 @@ PrefabInstance:
     - target: {fileID: 57273100850023163, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 890821001057367182, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
+      propertyPath: m_text
+      value: Say "Select"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473665994354444663, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
+      propertyPath: voiceCommand
+      value: Select
       objectReference: {fileID: 0}
     - target: {fileID: 1473665994354444663, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -330,6 +338,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -1551326459999896852, guid: e793ce11244aa79439518bd254e12844, type: 2}
+    - target: {fileID: 8300287927248090660, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
+      propertyPath: m_text
+      value: GAME START
+      objectReference: {fileID: 0}
     - target: {fileID: 8300287927248090714, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -424,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: -1551326459999896852, guid: e793ce11244aa79439518bd254e12844, type: 2}
     - target: {fileID: 8620601013220072207, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
@@ -433,6 +445,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8300287927700776916, guid: ff5b84a466e29094a9ced690864a5309, type: 3}
   m_PrefabInstance: {fileID: 927508470}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &953427144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953427143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 0
+  keywords:
+  - keyword: Game Start
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 953427154}
+          m_TargetAssemblyTypeName: TitleScene, Assembly-CSharp
+          m_MethodName: ChangeScene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  persistentKeywords: 0
+  speechConfirmationTooltipPrefab: {fileID: 0}
 --- !u!114 &953427154
 MonoBehaviour:
   m_ObjectHideFlags: 0
