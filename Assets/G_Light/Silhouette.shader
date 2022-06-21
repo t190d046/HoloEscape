@@ -1,12 +1,16 @@
 Shader "Custom/Silhouette" {
     SubShader{
-        Tags { "RenderType" = "Transparent" }
+        Tags {
+            "RenderType" = "Transparent" 
+            "Queue" = "Geometry-2"
+        }
 
         Stencil {
             Ref 1
             Comp always
             Pass replace
         }
+
         CGPROGRAM
         #pragma surface surf Lambert alpha
 
@@ -15,7 +19,7 @@ Shader "Custom/Silhouette" {
         };
 
         void surf(Input IN, inout SurfaceOutput o) {
-            o.Albedo = fixed3(1, 0, 0);
+            o.Albedo = fixed3(1, 1, 1);
             o.Alpha = 0;
         }
         ENDCG
