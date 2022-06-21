@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if(camTrans.position.z > 3)
         {
-            //SceneManager.LoadScene("EndingScene");
+            SceneManager.LoadScene("ending");
         }
     }
 
