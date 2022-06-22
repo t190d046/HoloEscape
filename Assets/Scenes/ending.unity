@@ -5911,7 +5911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingButtonVisuals: {fileID: 415445164}
   distanceSpaceMode: 1
-  startPushDistance: -0.008
+  startPushDistance: -0.01
   maxPushDistance: 0.006
   pressDistance: 0.0005
   releaseDistanceDelta: 0.002

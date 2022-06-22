@@ -17,6 +17,8 @@ public class MainScene: MonoBehaviour {
  
     public void ChangeScene()
     {
+        GameObject obj = GameObject.Find("Ending");
+        Destroy(obj.gameObject, 5f);
         SceneManager.LoadScene("TitleScene");
     }
 }
