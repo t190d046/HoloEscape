@@ -1,12 +1,16 @@
 Shader "Custom/Silhouette" {
     SubShader{
-        Tags { "RenderType" = "Transparent" }
+        Tags {
+            "RenderType" = "Transparent" 
+            "Queue" = "Geometry-2"
+        }
 
         Stencil {
             Ref 1
             Comp always
             Pass replace
         }
+
         CGPROGRAM
         #pragma surface surf Lambert alpha
 

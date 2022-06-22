@@ -1,15 +1,18 @@
 Shader "Custom/ObjectToPit" {
     Properties{
-        _MainTex("Base (RGB)", 2D) = "Black" {}
+        _MainTex("Base (RGB)", 2D) = "white" {}
     }
         SubShader{
-            Tags { "RenderType" = "Opaque" }
+            Tags { 
+                "RenderType" = "Opaque" 
+                "Queue" = "Geometry-1"
+            }
 
             Stencil {
                 Ref 1
-                Comp NotEqual
-                Pass keep
+                Comp Equal
             }
+
 
             CGPROGRAM
             #pragma surface surf Lambert
@@ -26,6 +29,8 @@ Shader "Custom/ObjectToPit" {
                 o.Alpha = c.a;
             }
             ENDCG
-    }
+            
+            
+        }
         FallBack "Diffuse"
 }
