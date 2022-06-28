@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Microsoft.MixedReality.WorldLocking.Core;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
