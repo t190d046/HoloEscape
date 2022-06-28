@@ -28,6 +28,7 @@ public class MoveDoor: MonoBehaviour
             {
                 canMove = false;
                 StartCoroutine(DoorMoveCoroutine());
+
             }
         }
     }
