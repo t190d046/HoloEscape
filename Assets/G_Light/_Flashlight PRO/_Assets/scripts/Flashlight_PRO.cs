@@ -14,6 +14,7 @@ public class Flashlight_PRO : MonoBehaviour
 	[SerializeField()] GameObject Mask;
 
 
+	public bool is_battery = false;
 
 	private Light spotlight;
 	private Material ambient_light_material;
@@ -21,12 +22,6 @@ public class Flashlight_PRO : MonoBehaviour
 	private bool is_enabled = false;
 
 	private Transform m_transform;
-
-
-
-
-
-
 
 	// Use this for initialization
 	void Start () 
@@ -68,8 +63,6 @@ public class Flashlight_PRO : MonoBehaviour
 	}
 
 
-
-
     /// <summary>
     /// changes the intensivity of lights from 0 to 100.
     /// call this from other scripts.
@@ -93,6 +86,8 @@ public class Flashlight_PRO : MonoBehaviour
 	/// </summary>
 	public void Switch()
 	{
+		if (!is_battery) return;
+
 		is_enabled = !is_enabled; 
 
 		Lights.SetActive (is_enabled);
@@ -101,9 +96,6 @@ public class Flashlight_PRO : MonoBehaviour
 		if (switch_sound != null)
 			switch_sound.Play ();
 	}
-
-
-
 
 
 	/// <summary>
