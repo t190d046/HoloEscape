@@ -5693,7 +5693,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 477121097}
         m_TargetAssemblyTypeName: MainScene, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: Ending2Title
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
