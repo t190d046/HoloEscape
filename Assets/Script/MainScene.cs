@@ -15,10 +15,14 @@ public class MainScene: MonoBehaviour {
         
     }
  
-    public void ChangeScene()
-    {
+    public void Ending2Title(){
         GameObject obj = GameObject.Find("Ending");
         Destroy(obj.gameObject, 5f);
+        ChangeScene();
+    }
+
+    public void ChangeScene()
+    {
         SceneManager.LoadScene("TitleScene");
     }
 }
