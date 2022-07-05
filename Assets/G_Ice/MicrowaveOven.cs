@@ -60,22 +60,27 @@ public class MicrowaveOven : MonoBehaviour
             ice_scale.z -= start_Scale.z*(Time.deltaTime/start_time);
             ice.transform.localScale = ice_scale;
 
+            // 対象オブジェクトの操作を不能にする
+            rigidbody_ice.constraints = RigidbodyConstraints.FreezeAll;
+            rigidbody_key.constraints = RigidbodyConstraints.FreezeAll;
+
             if(totalTime <= 0){
                 rigidbody_key.constraints = RigidbodyConstraints.None;
                 flag_warm = false;
 
                 progress.fillAmount = 1f;
 
-
                 AudioSource.PlayClipAtPoint(clip, transform.position);
 
                 // 対象のオブジェクトを消失させる(溶かす)
                 Destroy(this.gameObject);
             }
-        } else{
-            Vector3 posi = ice.transform.position;
-            key.transform.position = posi;
-        }
+        } 
+
+        Vector3 posi = ice.transform.position;
+        Vector3 angles = ice.transform.eulerAngles;
+        key.transform.position = posi;
+        key.transform.eulerAngles = angles;
     }
 
     // レンジと対象オブジェクトが触れた時に呼ばれる関数
@@ -99,9 +104,6 @@ public class MicrowaveOven : MonoBehaviour
     {
         if(flag_in == true){
             flag_warm = true;
-
-            // 対象オブジェクトの操作を不能にする
-            rigidbody_ice.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
     
