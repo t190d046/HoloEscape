@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PasswordLock : MonoBehaviour
 {
-
+    [SerializeField] GameObject key;
     public GameObject[] pCube;
     public Text inputField;
     public string pass;
@@ -45,6 +45,7 @@ public class PasswordLock : MonoBehaviour
     {
         if (pass == "2301")
         {
+            key.SetActive(true);
             for(int i=0;i<12;i++)
             {
                 Destroy(pCube[i]);
