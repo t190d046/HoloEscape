@@ -16,7 +16,7 @@ public class LogMessageText : MonoBehaviour
     /// 表示行数
     /// </summary>
     [SerializeField, Tooltip("表示行数")]
-    private int p_LineNum = 30;
+    private int p_LineNum = 50;
 
     private string[] linecodes = new string[] { "\n", "\r", "\r\n" };
 

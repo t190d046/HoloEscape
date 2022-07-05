@@ -16,7 +16,7 @@ public class MagnetPole : MonoBehaviour
     {
         if (transform.childCount > 0) return;
 
-        Debug.Log("Enter_" + collision.name);
+        //Debug.Log("Enter_" + collision.name);
 
         if (collision.gameObject.name == "ExitDoor_Key")
         {

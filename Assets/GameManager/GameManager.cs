@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] Transform room;
+    [SerializeField] WebApiClient webApiClient;
 
     private Transform camTrans;
 
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         WorldLockingManager.GetInstance().Load();
         camTrans = Camera.main.transform;
         InitGame();
+        StartCoroutine(webApiClient.Login());
     }
 
     private void Update()
