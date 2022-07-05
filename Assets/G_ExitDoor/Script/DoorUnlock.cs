@@ -1,40 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DoorUnlock : MonoBehaviour
 {
-    [SerializeField] Transform doorTramsform;
+    [SerializeField] GameObject doorBoard;
+    [SerializeField] TextMeshPro text;
     [SerializeField] WebApiClient webApiClient;
-    public bool canMove = true;
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Enter_" + collision.name);
+        //Debug.Log("Enter_" + collision.name);
 
-        if (canMove)
-        {
             if (collision.gameObject.name == "ExitDoor_Key")
             {
-                canMove = false;
-                StartCoroutine(DoorMoveCoroutine());
                 webApiClient.DoorLock();
-
+                text.text = "OPEN";
+                text.color = Color.green;
+                doorBoard.SetActive(false);
+                
             }
-        }
     }
 
-    IEnumerator DoorMoveCoroutine()
-    {
-
-        for (int i = 0; i < 90; i++)
-        {
-            yield return new WaitForSeconds(0.11f);
-            if (doorTramsform.localEulerAngles.y < 0 || doorTramsform.localEulerAngles.y > -90)
-            {
-                doorTramsform.Rotate(0f, -1.0f, 0f);
-            }
-        }
-        Debug.Log(doorTramsform.localEulerAngles);
-    }
 }

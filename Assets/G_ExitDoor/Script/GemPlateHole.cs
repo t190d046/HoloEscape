@@ -13,14 +13,14 @@ public class GemPlateHole : MonoBehaviour
 
         if (collision.gameObject.tag == "KeyGem")
         {
-            Debug.Log("Enter_" + collision.name);
+            //Debug.Log("Enter_" + collision.name);
 
             Transform c_transform = collision.transform;
             c_transform.parent = transform;
             collision.GetComponent<BoxCollider>().enabled = false;
             collision.GetComponent<ObjectManipulator>().enabled = false;
             collision.GetComponent<NearInteractionGrabbable>().enabled = false;
-            c_transform.localPosition = new Vector3(0, 0.1f, 0);
+            c_transform.localPosition = new Vector3(0, 0.07f, 0);
             c_transform.localEulerAngles = new Vector3(0, 0, 0);
 
             gemPlate.setGem();

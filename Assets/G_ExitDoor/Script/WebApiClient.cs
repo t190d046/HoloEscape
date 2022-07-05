@@ -36,16 +36,18 @@ public class WebApiClient : MonoBehaviour
     {
         public string action = "unlock";
     }
-    private sealed class Eneble
+    private sealed class Enable
     {
-        public string eneble = "true";
+        public bool enable = true;
     }
 
-    public void Login()
+
+    public IEnumerator Login()
     {
         var data = new LoginData();
         var json = JsonUtility.ToJson(data);
-        StartCoroutine(PostRequest("http://192.168.20.5:8080/api/user/auth", json, (string str) => { refreshToken = JsonUtility.FromJson<RefreshToken>(str); }));
+        yield return StartCoroutine(PostRequest("http://192.168.20.5:8080/api/user/auth", json, (string str) => { refreshToken = JsonUtility.FromJson<RefreshToken>(str); }));
+        EscapeMode(true);
     }
     private void GetAccsessToken(Callback ptr)
     {
@@ -57,8 +59,8 @@ public class WebApiClient : MonoBehaviour
         var json = JsonUtility.ToJson(refreshToken);
         StartCoroutine(PostRequest("http://192.168.20.5:8080/api/token", json, (string str) => { 
             var accsessToken = JsonUtility.FromJson<AccsessToken>(str);
-            Debug.Log(accsessToken);
-            Debug.Log(str);
+            //Debug.Log(accsessToken);
+            //Debug.Log(str);
             ptr.Invoke(accsessToken.accessToken);
         }));
     }
@@ -67,7 +69,15 @@ public class WebApiClient : MonoBehaviour
         var data = new Action();
         var json = JsonUtility.ToJson(data);
         GetAccsessToken((string str) => { StartCoroutine(PostRequestWithToken("http://192.168.20.5:8080/api/door", json, str)); });
-        
+        EscapeMode(false);
+
+    }
+    public void EscapeMode(bool flag)
+    {
+        var data = new Enable();
+        data.enable = flag;
+        var json = JsonUtility.ToJson(data);
+        GetAccsessToken((string str) => { StartCoroutine(PostRequestWithToken("http://192.168.20.5:8080/api/escape", json, str)); });
     }
 
     private IEnumerator PostRequest(string url, string json, Callback ptr)
@@ -87,6 +97,7 @@ public class WebApiClient : MonoBehaviour
             Debug.Log(req.result == UnityWebRequest.Result.Success);
             Debug.Log($"StatusCode: {req.responseCode}");
             Debug.Log(req.downloadHandler.text);
+            Debug.Log(req.error);
             ptr.Invoke(req.downloadHandler.text);
         }
 

@@ -810,3 +810,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beea45a65e8b3554f89211fe69883b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemPlate: {fileID: 0}
