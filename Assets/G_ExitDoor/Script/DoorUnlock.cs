@@ -13,14 +13,19 @@ public class DoorUnlock : MonoBehaviour
     {
         //Debug.Log("Enter_" + collision.name);
 
-            if (collision.gameObject.name == "ExitDoor_Key")
-            {
-                webApiClient.DoorLock();
-                text.text = "OPEN";
-                text.color = Color.green;
-                doorBoard.SetActive(false);
-                
-            }
+        if (collision.gameObject.name == "ExitDoor_Key")
+        {
+            SetUnlock();
+
+
+        }
     }
 
+    public void SetUnlock()
+    {
+        webApiClient.DoorLock();
+        text.text = "OPEN";
+        text.color = Color.green;
+        doorBoard.SetActive(false);
+    }
 }

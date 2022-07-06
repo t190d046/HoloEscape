@@ -11,6 +11,7 @@ public class Flashlight_PRO : MonoBehaviour
 	[SerializeField()] AudioSource switch_sound; // audio of the switcher
 	[SerializeField()] ParticleSystem dust_particles; // dust particles
 
+	[SerializeField()] TextMesh text;
 	[SerializeField()] GameObject Mask;
 
 
@@ -86,15 +87,19 @@ public class Flashlight_PRO : MonoBehaviour
 	/// </summary>
 	public void Switch()
 	{
+		if (switch_sound != null)
+			switch_sound.Play();
+
 		if (!is_battery) return;
 
-		is_enabled = !is_enabled; 
+		is_enabled = !is_enabled;
+
+		if (is_enabled) text.text = "ON";
+		else text.text = "OFF";
 
 		Lights.SetActive (is_enabled);
 		Mask.SetActive (is_enabled);
 
-		if (switch_sound != null)
-			switch_sound.Play ();
 	}
 
 
