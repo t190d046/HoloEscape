@@ -16,8 +16,6 @@ public class DoorUnlock : MonoBehaviour
         if (collision.gameObject.name == "ExitDoor_Key")
         {
             SetUnlock();
-
-
         }
     }
 
@@ -25,6 +23,7 @@ public class DoorUnlock : MonoBehaviour
     {
         webApiClient.DoorLock();
         text.text = "OPEN";
+        text.fontSize = 6;
         text.color = Color.green;
         doorBoard.SetActive(false);
     }

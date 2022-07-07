@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Keyboard : MonoBehaviour
 {
-    [SerializeField] GameObject keyIten;
+    AudioSource audioSource;
+    [SerializeField] AudioClip clearSound, falseSound;
+    [SerializeField] GameObject keyIten, hint, musicSwitch;
+    [SerializeField] Animation box;
     [SerializeField] Renderer[] lamp;
     [SerializeField] Material mateOff, mateOn;
     private int[] pressedkey = new int[14];
@@ -12,6 +15,11 @@ public class Keyboard : MonoBehaviour
     static private int i = 0;
 
     private bool isComplete = false;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void PressKey(int key)
     {
         if (isComplete) return;
@@ -22,23 +30,6 @@ public class Keyboard : MonoBehaviour
 
         if (i == 14) CheckComplete();
     }
-
-    private void CheckComplete()
-    {
-        int j = 0;
-        foreach (var key in pressedkey)
-        {
-            if (key != answerkey[j])
-            {
-                Reset();
-                return;
-            }
-            j++;
-        }
-        keyIten.SetActive(true);
-        isComplete = true;
-    }
-
     public void Reset()
     {
         foreach (var tmp in lamp)
@@ -47,4 +38,31 @@ public class Keyboard : MonoBehaviour
         }
         i = 0;
     }
+
+    private void CheckComplete()
+    {
+        int j = 0;
+        foreach (var key in pressedkey)
+        {
+            if (key != answerkey[j])
+            {
+                audioSource.PlayOneShot(falseSound);
+                Reset();
+                return;
+            }
+            j++;
+        }
+        Clear();
+    }
+    void Clear()
+    {
+        audioSource.PlayOneShot(clearSound);
+        box.Play();
+        keyIten.SetActive(true);
+        hint.SetActive(true);
+        musicSwitch.SetActive(false);
+        isComplete = true;
+    }
+
+
 }
