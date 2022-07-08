@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Microsoft.MixedReality.Toolkit.UI;
 
 
 
@@ -60,15 +61,12 @@ public class MicrowaveOven : MonoBehaviour
             ice_scale.z -= start_Scale.z*(Time.deltaTime/start_time);
             ice.transform.localScale = ice_scale;
 
-            // 対象オブジェクトの操作を不能にする
-            rigidbody_ice.constraints = RigidbodyConstraints.FreezeAll;
-            rigidbody_key.constraints = RigidbodyConstraints.FreezeAll;
-
             if(totalTime <= 0){
                 rigidbody_key.constraints = RigidbodyConstraints.None;
                 flag_warm = false;
 
                 progress.fillAmount = 1f;
+                key.GetComponent<BoxCollider>().enabled = true;
 
                 AudioSource.PlayClipAtPoint(clip, transform.position);
 
@@ -103,8 +101,17 @@ public class MicrowaveOven : MonoBehaviour
     public void warm()
     {
         if(flag_in == true){
+            Lock();
+
             flag_warm = true;
         }
+    }
+
+    void Lock(){
+        // 対象オブジェクトの操作を不能にする
+        rigidbody_ice.constraints = RigidbodyConstraints.FreezeAll;
+        rigidbody_key.constraints = RigidbodyConstraints.FreezeAll;
+        ice.GetComponent<ObjectManipulator>().EnableConstraints = true;
     }
     
 }

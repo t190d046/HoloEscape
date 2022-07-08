@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 5905365155346043840}
   - component: {fileID: 5905365155346043841}
   - component: {fileID: 5905365155346043842}
+  - component: {fileID: 8978368337488539287}
   m_Layer: 0
   m_Name: Ice_Obj
   m_TagString: Untagged
@@ -507,7 +508,7 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
-  enableConstraints: 1
+  enableConstraints: 0
   constraintsManager: {fileID: 5905365155346043841}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
@@ -550,6 +551,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
+--- !u!114 &8978368337488539287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905365155346043704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3e6359c9750ad4fb8a05c9b8704d7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  constraintOnRotation: -1
+  useLocalSpaceForConstraint: 0
 --- !u!1 &5905365155464165797
 GameObject:
   m_ObjectHideFlags: 0
