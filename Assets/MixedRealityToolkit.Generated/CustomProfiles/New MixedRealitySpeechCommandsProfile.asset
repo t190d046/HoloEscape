@@ -58,3 +58,17 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: "\u30C7\u30D0\u30C3\u30B0\u30E2\u30FC\u30C9"
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: "\u30D7\u30EC\u30A4\u30E2\u30FC\u30C9"
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0

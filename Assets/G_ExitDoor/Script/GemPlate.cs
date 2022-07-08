@@ -31,7 +31,7 @@ public class GemPlate : MonoBehaviour
         text.fontSize = 4;
         text.color = Color.blue;
         doorBoard.enabled = true;
-        keyHole.SetActive(true);
+        //keyHole.SetActive(true);
         gameManager.SetClearDoorLock();
     }
 }

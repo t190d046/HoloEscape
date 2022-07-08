@@ -18,6 +18,7 @@ public class GemPlateHole : MonoBehaviour
             Transform c_transform = collision.transform;
             c_transform.parent = transform;
             collision.GetComponent<BoxCollider>().enabled = false;
+            collision.GetComponent<Rigidbody>().isKinematic = true;
             collision.GetComponent<ObjectManipulator>().enabled = false;
             collision.GetComponent<NearInteractionGrabbable>().enabled = false;
             c_transform.localPosition = new Vector3(0, 0.07f, 0);
