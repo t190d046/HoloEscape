@@ -18,7 +18,7 @@ public class MainScene: MonoBehaviour {
     // Destroy when Credit
     public void EndingC2Title(){
         GameObject obj = GameObject.Find("CreditPanel");
-        Destroy(obj.gameObject, 10f);
+        Destroy(obj.gameObject, 5f);
         Ending2Title();
     }
 
