@@ -7187,7 +7187,9 @@ MonoBehaviour:
   m_text: "\u25C7 Credits\n[\u88FD\u4F5C\u8005]\n\u3000\u5CA9\u57CE \u7FD4\u4E5F
     \u3000\u5B87\u90FD\u91CE \u52C7\u6597\n\u3000\u5317\u6751 \u7F8E\u96C4 \u3000\u5742\u672C
     \u664B\u592A\u90CE\n\u3000\u677E\u5143 \u9999\u6A39   \u54C1\u5DDD \u8F1D\n\n[\u4F7F\u7528\u30EA\u30BD\u30FC\u30B9]\n\u3000\u30D5\u30A9\u30F3\u30C8: 
-    BIZ UDPGothic\n\u3000\u97F3\u697D: \u9B54\u738B\u9B42, \u52B9\u679C\u97F3\u30E9\u30DC\n\n"
+    BIZ UDPGothic\n\u3000\u97F3\u697D: \u9B54\u738B\u9B42, \u52B9\u679C\u97F3\u30E9\u30DC\n         
+    \u7121\u6599\u52B9\u679C\u97F3\u3067\u904A\u307C\u3046\uFF01,\n          OtoLogic(CC
+    BY 4.0)\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e793ce11244aa79439518bd254e12844, type: 2}
   m_sharedMaterial: {fileID: -1551326459999896852, guid: e793ce11244aa79439518bd254e12844, type: 2}
