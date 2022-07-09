@@ -11791,7 +11791,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1732220661}
         m_TargetAssemblyTypeName: MainScene, Assembly-CSharp
-        m_MethodName: Ending2Title
+        m_MethodName: EndingC2Title
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
