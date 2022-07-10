@@ -5087,7 +5087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
   moveLerpTime: 0.5
-  rotateLerpTime: 0.1
+  rotateLerpTime: 0.01
   scaleLerpTime: 1
   maintainScaleOnInitialization: 1
   smoothing: 1
@@ -6533,7 +6533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingButtonVisuals: {fileID: 1218446475}
   distanceSpaceMode: 1
-  startPushDistance: -0.01
+  startPushDistance: -0.008
   maxPushDistance: 0.006
   pressDistance: 0.0005
   releaseDistanceDelta: 0.002
@@ -7178,7 +7178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingButtonVisuals: {fileID: 415445164}
   distanceSpaceMode: 1
-  startPushDistance: -0.01
+  startPushDistance: -0.008
   maxPushDistance: 0.006
   pressDistance: 0.0005
   releaseDistanceDelta: 0.002
@@ -8600,7 +8600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingButtonVisuals: {fileID: 1721395230}
   distanceSpaceMode: 1
-  startPushDistance: -0.01
+  startPushDistance: -0.008
   maxPushDistance: 0.006
   pressDistance: 0.0005
   releaseDistanceDelta: 0.002
@@ -12009,7 +12009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingButtonVisuals: {fileID: 896025804}
   distanceSpaceMode: 1
-  startPushDistance: -0.01
+  startPushDistance: -0.008
   maxPushDistance: 0.006
   pressDistance: 0.0005
   releaseDistanceDelta: 0.002
