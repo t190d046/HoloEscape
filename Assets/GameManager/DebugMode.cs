@@ -6,15 +6,28 @@ public class DebugMode : MonoBehaviour
 {
     [SerializeField] GameObject mapping;
     [SerializeField] GameObject debugLog;
-    [SerializeField] BoxCollider[] spacePin;
+    [SerializeField] GameObject markers;
+
+    private BoxCollider[] markerCollider;
+    private MeshRenderer[] markerMesh;
+
+    private void Awake()
+    {
+        markerCollider = markers.GetComponentsInChildren<BoxCollider>();
+        markerMesh = markers.GetComponentsInChildren<MeshRenderer>();
+
+    }
     public void SetDebugMode()
     {
         mapping.SetActive(true);
         debugLog.SetActive(true);
-        foreach (var pin in spacePin)
+        foreach (var col in markerCollider)
         {
-            pin.enabled = true;
-            GetComponent<MeshRenderer>().enabled = true;
+            col.enabled = true;
+        }
+        foreach (var mesh in markerMesh)
+        {
+            mesh.enabled = true;
         }
     }
 
@@ -22,10 +35,13 @@ public class DebugMode : MonoBehaviour
     {
         mapping.SetActive(false);
         debugLog.SetActive(false);
-        foreach (var pin in spacePin)
+        foreach (var col in markerCollider)
         {
-            pin.enabled = false;
-            GetComponent<MeshRenderer>().enabled = false;
+            col.enabled = false;
+        }
+        foreach (var mesh in markerMesh)
+        {
+            mesh.enabled = false;
         }
     }
 }
