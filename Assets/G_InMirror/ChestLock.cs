@@ -5,13 +5,14 @@ using UnityEngine;
 public class ChestLock : MonoBehaviour
 {
     [SerializeField] GameObject key;
-    void OnTriggerStay(Collider collision)
+    [SerializeField] Animation open;
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject == key)
         {
             //Debug.Log("Enter_" + collision.name);
 
-            GetComponent<Animation>().Play();
+            open.Play();
             Destroy(this);
         }
     }
