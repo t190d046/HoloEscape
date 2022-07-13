@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class ScrewDriver : MonoBehaviour
 {
     Transform nowTransform;
     Vector3 prevRotation;
     Vector3 pos;
+    Quaternion rot;
     Rigidbody rb;
 
     Screw screw;
@@ -18,6 +20,7 @@ public class ScrewDriver : MonoBehaviour
         nowTransform = this.gameObject.transform;
         prevRotation = nowTransform.localEulerAngles;
         pos = nowTransform.position;
+        rot = nowTransform.rotation;
         rb = this.gameObject.GetComponent<Rigidbody>();
 
         screwTurnFrag = false;
@@ -25,11 +28,12 @@ public class ScrewDriver : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(nowTransform.localEulerAngles.y + " - " + prevRotation.y + " = " + (nowTransform.localEulerAngles.y - prevRotation.y));
+        //Debug.Log(nowTransform.localEulerAngles.y + " - " + prevRotation.y + " = " + (nowTransform.localEulerAngles.y - prevRotation.y));
         if (!screwTurnFrag || screw == null)
         {
-            rb.constraints = RigidbodyConstraints.None;
             prevRotation.y = nowTransform.localEulerAngles.y;
+            rb.constraints = RigidbodyConstraints.None;
+            GetComponent<ObjectManipulator>().EnableConstraints = false;
             return;
         }
 
@@ -49,15 +53,18 @@ public class ScrewDriver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Screw")
         {
+            screw = collision.gameObject.GetComponent<Screw>();
+            Quaternion s_rot = screw.transform.rotation;
+            nowTransform.rotation = Quaternion.Euler(s_rot.x, s_rot.y, s_rot.z - 90);
+
             pos.x = collision.transform.position.x;
-            pos.y = collision.transform.position.y + 0.5f;
+            pos.y = collision.transform.position.y + 0.32f;
             pos.z = collision.transform.position.z;
             nowTransform.position = pos;
 
-            Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            GetComponent<ObjectManipulator>().EnableConstraints = true;
 
-            screw = collision.gameObject.GetComponent<Screw>();
             prevRotation.y = nowTransform.localEulerAngles.y;
             screwTurnFrag = true;
         }
@@ -68,7 +75,7 @@ public class ScrewDriver : MonoBehaviour
         if (collision.gameObject.tag == "Screw")
         {
             pos.x = collision.transform.position.x;
-            pos.y = collision.transform.position.y + 0.5f;
+            pos.y = collision.transform.position.y + 0.32f;
             pos.z = collision.transform.position.z;
             nowTransform.position = pos;
         }

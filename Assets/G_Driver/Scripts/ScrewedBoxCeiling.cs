@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScrewedBoxCeiling : MonoBehaviour
 {
     int remainScrewNum;
+    [SerializeField] GameObject key;
 
     void Start()
     {
@@ -28,7 +29,9 @@ public class ScrewedBoxCeiling : MonoBehaviour
 
     void CanOpen()
     {
+        key.SetActive(true);
         FixedJoint joint = this.gameObject.GetComponent<FixedJoint>();
         Destroy(joint);
+        GetComponent<Rigidbody>().isKinematic = true;
     }
 }
