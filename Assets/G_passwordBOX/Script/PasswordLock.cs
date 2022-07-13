@@ -12,9 +12,13 @@ public class PasswordLock : MonoBehaviour
     public int cnt;
     public GameObject inputBox;
     public Material[] material;
+    [SerializeField] AudioClip sound;
+    private AudioSource audioSource;
+
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         pass = "";
         cnt = 0;
         inputField.text = "";
@@ -25,6 +29,7 @@ public class PasswordLock : MonoBehaviour
         cnt++;
         if (cnt <= 4)
         {
+            audioSource.PlayOneShot(sound);
             pass += num.text;
             inputField.text += "   " + num.text;
             inputBox.GetComponent<Renderer>().material = material[cnt];
@@ -34,6 +39,7 @@ public class PasswordLock : MonoBehaviour
 
     public void InputCancel()
     {
+        audioSource.PlayOneShot(sound);
         pass = "";
         cnt = 0;
         inputField.text = "";
@@ -43,6 +49,7 @@ public class PasswordLock : MonoBehaviour
 
     public void InputEnter()
     {
+        audioSource.PlayOneShot(sound);
         if (pass == "2301")
         {
             key.SetActive(true);
