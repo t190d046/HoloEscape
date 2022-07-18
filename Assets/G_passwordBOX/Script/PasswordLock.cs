@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PasswordLock : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] GameObject key;
     public GameObject[] pCube;
     public Text inputField;
@@ -60,6 +61,8 @@ public class PasswordLock : MonoBehaviour
             // pCube[5]のオブジェクトのサイズを 0.1f 拡大する
             //pCube[5].transform.localScale = pCube[5].transform.localScale + new Vector3(0.1f, 0.1f, 0.1f);
             inputField.text = "   C  l  e  a  r  ";
+
+            gameManager.isClearPassword = true;
         }
         else
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Keyboard : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     AudioSource audioSource;
     [SerializeField] AudioClip clearSound, falseSound;
     [SerializeField] GameObject keyIten, hint, musicSwitch;
@@ -62,6 +63,10 @@ public class Keyboard : MonoBehaviour
         hint.SetActive(true);
         musicSwitch.SetActive(false);
         isComplete = true;
+
+        gameManager.isClearPiano = true;
+        gameManager.isClearLight = true;
+
     }
 
 

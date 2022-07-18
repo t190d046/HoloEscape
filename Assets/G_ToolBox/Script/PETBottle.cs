@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PETBottle : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     GameObject grip;
     void Start()
     {
@@ -25,5 +26,6 @@ public class PETBottle : MonoBehaviour
 
         GetComponent<Rigidbody>().isKinematic = true;
         grip.GetComponent<BoxCollider>().enabled = true;
+        gameManager.isClearPetbottle = true;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     GameObject lockedBoxCeiling;
     GameObject scissors;
     GameObject rod;
@@ -22,6 +23,7 @@ public class Lock : MonoBehaviour
             lockedBoxCeiling.GetComponent<LockedBoxCeiling>().Unlocked();
             scissors.GetComponent<BoxCollider>().enabled = true;
             rod.GetComponent<BoxCollider>().enabled = true;
+            gameManager.isClearToolBox = true;
         }
     }
 }

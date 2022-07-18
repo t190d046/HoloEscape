@@ -9,6 +9,7 @@ using Microsoft.MixedReality.Toolkit.UI;
 // このコンポーネントを加えたオブジェクトに、コンポーネントに取り込んだオブジェクトが入っているときにフラグを立てることでカウントダウンをはじめ、カウントが終わると取り込んだオブジェクトを消失させる
 public class MicrowaveOven : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     // 対象のオブジェクトを取り込む
     [SerializeField] private GameObject ice = null;
     [SerializeField] private GameObject key = null;
@@ -69,6 +70,8 @@ public class MicrowaveOven : MonoBehaviour
                 key.GetComponent<BoxCollider>().enabled = true;
 
                 AudioSource.PlayClipAtPoint(clip, transform.position);
+
+                gameManager.isClearIce = true;
 
                 // 対象のオブジェクトを消失させる(溶かす)
                 Destroy(this.gameObject);

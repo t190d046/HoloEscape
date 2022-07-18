@@ -26,7 +26,7 @@ public class MagnetPole : MonoBehaviour
                 audioSource.PlayOneShot(sound);
                 collision.transform.parent = transform;
                 collision.transform.localPosition = new Vector3(0, 0, 0);
-                gameManager.SetClearInMirror();
+                gameManager.isClearInMirror = true;
             }
         }
     }

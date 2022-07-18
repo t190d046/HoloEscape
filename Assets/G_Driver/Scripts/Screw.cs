@@ -15,7 +15,7 @@ public class Screw : MonoBehaviour
         pos = nowTransform.position;
         rot = nowTransform.localEulerAngles;
         initPos_y = pos.y;
-        Debug.Log("initPos_y = " + initPos_y);
+        //Debug.Log("initPos_y = " + initPos_y);
     }
 
     public void TurnScrew(float rotation_y)

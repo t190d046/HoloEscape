@@ -12,9 +12,9 @@ public enum SlideDirection
 }
 public class SlidePuzzleManager : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     AudioSource audioSource;
     [SerializeField] AudioClip sound;
-    [SerializeField] GameManager gameManager;
     [SerializeField] SlidePuzzlePanel[] slidePuzzlePanels;
     //panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9;
     [SerializeField] GameObject inItem;
@@ -117,7 +117,7 @@ public class SlidePuzzleManager : MonoBehaviour
         StartCoroutine(OpenCoroutine());
         complete = true;
         canSlide = false;
-        gameManager.SetClearSlidePuzzle();
+        gameManager.isClearSlidePuzzle = true;
     }
 
     public void SwapPanel(int r, int c, int nr, int nc)
