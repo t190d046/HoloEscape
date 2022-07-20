@@ -13,6 +13,8 @@ public enum SlideDirection
 public class SlidePuzzleManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    AudioSource audioSource;
+    [SerializeField] AudioClip sound;
     [SerializeField] SlidePuzzlePanel[] slidePuzzlePanels;
     //panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9;
     [SerializeField] GameObject inItem;
@@ -23,6 +25,7 @@ public class SlidePuzzleManager : MonoBehaviour
     private void OnEnable()
     {
         init();
+        audioSource = GetComponent<AudioSource>();
     }
     public void init()
     {
@@ -114,7 +117,7 @@ public class SlidePuzzleManager : MonoBehaviour
         StartCoroutine(OpenCoroutine());
         complete = true;
         canSlide = false;
-        gameManager.SetClearSlidePuzzle();
+        gameManager.isClearSlidePuzzle = true;
     }
 
     public void SwapPanel(int r, int c, int nr, int nc)
@@ -174,6 +177,7 @@ public class SlidePuzzleManager : MonoBehaviour
 
     IEnumerator OpenCoroutine()
     {
+        audioSource.PlayOneShot(sound);
         for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(0.1f);

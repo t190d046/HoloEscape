@@ -18,7 +18,7 @@ public class RevolutionRing : MonoBehaviour
             EarthCatcher eartht = collision.GetComponent<EarthCatcher>();
             if (!eartht.isCatch)
             {
-                Debug.Log("Enter_" + collision.name);
+                //Debug.Log("Enter_" + collision.name);
                 eartht.SetManipuleator(false);
 
                 Transform pL_transform = collision.transform;

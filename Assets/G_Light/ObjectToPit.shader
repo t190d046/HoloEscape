@@ -13,7 +13,6 @@ Shader "Custom/ObjectToPit" {
                 Comp Equal
             }
 
-
             CGPROGRAM
             #pragma surface surf Lambert
 

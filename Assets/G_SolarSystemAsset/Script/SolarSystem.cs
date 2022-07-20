@@ -14,7 +14,7 @@ public class SolarSystem : MonoBehaviour
     public void ChildrenUpdate()
     {
        planetList = GetComponentsInChildren<PlanetController>();
-       Debug.Log("planetList_" + planetList.Length);
+       //Debug.Log("planetList_" + planetList.Length);
     }
     // Update is called once per frame
     void FixedUpdate()
