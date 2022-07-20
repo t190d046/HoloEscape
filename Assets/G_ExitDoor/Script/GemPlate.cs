@@ -27,7 +27,7 @@ public class GemPlate : MonoBehaviour
             if (gem == false) return;
 
         }
-        text.text = "Say\nKey\nWard";
+        text.text = "Say\nthe\nsecret";
         text.fontSize = 4;
         text.color = Color.blue;
         doorBoard.enabled = true;

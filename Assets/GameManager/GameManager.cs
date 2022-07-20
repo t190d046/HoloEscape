@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] Transform room;
     [SerializeField] WebApiClient webApiClient;
+    [SerializeField] DebugMode debugmode;
 
     private Transform camTrans;
 
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
         camTrans = Camera.main.transform;
         InitGame();
         StartCoroutine(webApiClient.Login());
+        debugmode.SetPlayMode();
+
     }
 
     private void Update()

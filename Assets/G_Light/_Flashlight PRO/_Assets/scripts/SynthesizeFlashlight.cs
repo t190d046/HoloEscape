@@ -35,7 +35,9 @@ public class SynthesizeFlashlight : MonoBehaviour
     public void Synthesize()
     {
         Destroy(another_item);
-        result_item.GetComponent<Flashlight_PRO>().is_battery = true;
+        Flashlight_PRO light = result_item.GetComponent<Flashlight_PRO>();
+        light.is_battery = true;
+        light.Switch();
     }
 
 
